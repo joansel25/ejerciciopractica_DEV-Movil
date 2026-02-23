@@ -1,2 +1,1 @@
-# ejerciciopractica_DEV-Movil
-videojuego
+# practica de videojuego
