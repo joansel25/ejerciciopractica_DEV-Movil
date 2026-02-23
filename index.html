@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Battle Royale - Movil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Pantalla de Inicio -->
+    <div id="setup-screen">
+        <h1 class="title">JS Battle Arena</h1>
+        <div>
+            <input type="text" id="p1-name" placeholder="Nombre Jugador 1" value="Jugador 1">
+        </div>
+        <div id="p2-input-container">
+            <input type="text" id="p2-name" placeholder="Nombre Jugador 2" value="Jugador 2">
+        </div>
+        <div style="margin: 1rem 0;">
+            <label>
+                <input type="checkbox" id="vs-machine"> Jugar contra la Máquina
+            </label>
+        </div>
+        <button id="start-btn">¡COMENZAR BATALLA!</button>
+    </div>
+
+    <!-- Pantalla de Juego -->
+    <div id="game-screen" style="display: none;">
+        <div class="game-container">
+            <!-- Jugador 1 -->
+            <div id="card-0" class="player-card">
+                <h2 id="name-0">Jugador 1</h2>
+                <div class="character-box" id="char-box-0">
+                    <div class="character-sprite">⚔️</div>
+                </div>
+                <div class="hp-bar-container">
+                    <div id="hp-fill-0" class="hp-bar-fill"></div>
+                </div>
+                <p><strong>HP:</strong> <span id="hp-text-0">100</span>/100</p>
+                <div class="controls" id="controls-0">
+                    <button onclick="interact('atacar', 0)">🗡️ Atacar</button>
+                    <button onclick="interact('curar', 0)">💚 Curar</button>
+                    <button onclick="interact('defender', 0)" style="grid-column: span 2;">🛡️ Defender</button>
+                </div>
+            </div>
+
+            <!-- Centro: VS -->
+            <div class="vs-divider">VS</div>
+
+            <!-- Jugador 2 -->
+            <div id="card-1" class="player-card">
+                <h2 id="name-1">Jugador 2</h2>
+                <div class="character-box" id="char-box-1">
+                    <div class="character-sprite">🧙</div>
+                </div>
+                <div class="hp-bar-container">
+                    <div id="hp-fill-1" class="hp-bar-fill"></div>
+                </div>
+                <p><strong>HP:</strong> <span id="hp-text-1">100</span>/100</p>
+                <div class="controls" id="controls-1">
+                    <button onclick="interact('atacar', 1)">🗡️ Atacar</button>
+                    <button onclick="interact('curar', 1)">💚 Curar</button>
+                    <button onclick="interact('defender', 1)" style="grid-column: span 2;">🛡️ Defender</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="log">
+            <div class="log-entry">Bienvenido a la Arena. Esperando primer movimiento...</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 1rem;">
+            <button onclick="location.reload()" style="background: #334155;">Reiniciar Juego</button>
+        </div>
+    </div>
+
+    <!-- Modal de Victoria (Estructura Limpia) -->
+    <div id="victory-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="victory-icon">🏆</div>
+            <h1 id="victory-title">¡VICTORIA!</h1>
+            <p id="victory-msg">El jugador ha ganado la batalla.</p>
+            <div class="modal-actions">
+                <button onclick="location.reload()" class="btn-primary">REJUGAR / REINICIAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
